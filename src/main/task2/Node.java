@@ -1,14 +1,12 @@
 package main.task2;
 
-class Node
-{
+class Node {
     int key, degree;
     Node parent;
     Node sibling;
     Node child;
 
-    public Node(int k)
-    {
+    public Node(int k) {
         key = k;
         degree = 0;
         parent = null;
@@ -16,8 +14,7 @@ class Node
         child = null;
     }
 
-    public Node reverse(Node sibl)
-    {
+    public Node reverse(Node sibl) {
         Node ret;
         if (sibling != null)
             ret = sibling.reverse(this);
@@ -27,8 +24,7 @@ class Node
         return ret;
     }
 
-    public Node findMinNode()
-    {
+    public Node findMinNode() {
         Node x = this, y = this;
         int min = x.key;
 
@@ -43,34 +39,7 @@ class Node
         return y;
     }
 
-    public Node findANodeWithKey(int value)
-    {
-        Node temp = this, node = null;
-
-        while (temp != null)
-        {
-            if (temp.key == value)
-            {
-                node = temp;
-                break;
-            }
-            if (temp.child == null)
-                temp = temp.sibling;
-            else
-            {
-                node = temp.child.findANodeWithKey(value);
-                if (node == null)
-                    temp = temp.sibling;
-                else
-                    break;
-            }
-        }
-
-        return node;
-    }
-    /* Function to get size */
-    public int getSize()
-    {
+    public int getSize() {
         return (1 + ((child == null) ? 0 : child.getSize()) + ((sibling == null) ? 0 : sibling.getSize()));
     }
 }
