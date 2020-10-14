@@ -2,13 +2,11 @@ package main.task2;
 
 public class BiQueue {
     private Node Nodes;
-    private int size;
 
     private String heap;
 
     public BiQueue() {
         Nodes = null;
-        size = 0;
     }
 
     public boolean isEmpty() {
@@ -17,17 +15,14 @@ public class BiQueue {
 
     public void clearHeap() {
         Nodes = null;
-        size = 0;
     }
 
     public void insert(int value) {
         Node temp = new Node(value);
         if (Nodes == null) {
             Nodes = temp;
-            size = 1;
         } else {
             uniteNodes(temp);
-            size++;
         }
     }
 
@@ -125,15 +120,12 @@ public class BiQueue {
             temp = temp.sibling;
         }
 
-        if ((Nodes == null) && (fakeNode == null))
-            size = 0;
-        else {
+        if ((Nodes != null) || (fakeNode != null)) {
             if (Nodes == null)
                 Nodes = fakeNode.reverse(null);
             else
                 if (fakeNode != null)
                     uniteNodes(fakeNode.reverse(null));
-            size = Nodes.getSize();
         }
 
         return minNode.key;
