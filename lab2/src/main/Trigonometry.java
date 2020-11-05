@@ -30,7 +30,10 @@ public class Trigonometry {
     }
 
     public double tan(double x){
-        return basicTrigonometry.sin(x) / cos(x);
+        double cos = cos(x);
+        if (cos == 0)
+            throw new IllegalArgumentException();
+        return basicTrigonometry.sin(x) / cos;
     }
 
     public double cot(double x){

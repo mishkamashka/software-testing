@@ -2,7 +2,10 @@ package main;
 
 public class Main {
     public static void main(String[] args) {
-//        System.out.printf("expected: %f; got: %f\n", Math.log(-0.5), BasicLogarithm.ln(-0.5));
-//        System.out.printf("system: %f", FuncSystem.system(0.5));
+        BasicLogarithm basicLogarithm = new BasicLogarithm();
+        BasicTrigonometry basicTrigonometry = new BasicTrigonometry();
+        Trigonometry trigonometry = new Trigonometry(basicTrigonometry);
+        FuncSystem system = new FuncSystem(basicLogarithm, basicTrigonometry, new Logarithms(basicLogarithm), new Trigonometry(basicTrigonometry));
+        System.out.printf("system: %f\n", system.system(-1));
     }
 }

@@ -29,30 +29,37 @@ public class TrigonometryTest {
         when(mock.sin(Math.PI * 5 / 4)).thenReturn(-Math.sqrt(2) / 2);
         when(mock.sin(Math.PI * 3 / 2)).thenReturn(-1.);
         when(mock.sin(Math.PI * 7 / 4)).thenReturn(-Math.sqrt(2) / 2);
+        when(mock.sin(2)).thenThrow(new IllegalArgumentException());
+        when(mock.sin(-2)).thenThrow(new IllegalArgumentException());
         trigonometry = new Trigonometry(mock);
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {0, Math.PI/2, Math.PI*3/4, Math.PI/4, Math.PI})
+    @ValueSource(doubles = {0, Math.PI / 2, Math.PI * 3 / 4, Math.PI / 4, Math.PI})
     void testCosValidArgs(double x) {
-        System.out.println(Math.cos(x));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> trigonometry.cos(x));
+    }
+
+    @ParameterizedTest
+    @ValueSource(doubles = {2, -2})
+    void testCosInvalidArgs(double x) {
         Assertions.assertEquals(Math.cos(x), trigonometry.cos(x), delta);
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {0, Math.PI, Math.PI*5/4})
+    @ValueSource(doubles = {0, Math.PI, Math.PI * 5 / 4})
     void testSecValidArgs(double x) {
         Assertions.assertEquals(1 / Math.cos(x), trigonometry.sec(x), delta);
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {-Math.PI*3/2, Math.PI*3/2, -Math.PI/2, Math.PI/2})
+    @ValueSource(doubles = {-Math.PI * 3 / 2, Math.PI * 3 / 2, -Math.PI / 2, Math.PI / 2})
     void testSecInvalidArgs(double x) {
-        Assertions.assertThrows(IllegalArgumentException.class,()-> trigonometry.sec(x));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> trigonometry.sec(x));
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {Math.PI/6, Math.PI/4, Math.PI/3, Math.PI/2, Math.PI*5/4, Math.PI*3/2, Math.PI*7/4})
+    @ValueSource(doubles = {Math.PI / 6, Math.PI / 4, Math.PI / 3, Math.PI / 2, Math.PI * 5 / 4, Math.PI * 3 / 2, Math.PI * 7 / 4})
     void testCscValidArgs(double x) {
         Assertions.assertEquals(1 / Math.sin(x), trigonometry.csc(x), delta);
     }
@@ -60,11 +67,11 @@ public class TrigonometryTest {
     @ParameterizedTest
     @ValueSource(doubles = {0, Math.PI})
     void testCscInvalidArgs(double x) {
-        Assertions.assertThrows(IllegalArgumentException.class,()-> trigonometry.csc(x));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> trigonometry.csc(x));
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {Math.PI/2, Math.PI*5/4, Math.PI*3/2})
+    @ValueSource(doubles = {Math.PI / 2, Math.PI * 5 / 4, Math.PI * 3 / 2})
     void testCotValidArgs(double x) {
         Assertions.assertEquals(1 / Math.tan(x), trigonometry.cot(x), delta);
     }
@@ -72,6 +79,6 @@ public class TrigonometryTest {
     @ParameterizedTest
     @ValueSource(doubles = {0, Math.PI})
     void testCotInvalidArgs(double x) {
-        Assertions.assertThrows(IllegalArgumentException.class,()-> trigonometry.cot(x));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> trigonometry.cot(x));
     }
 }

@@ -12,9 +12,6 @@ public class BasicTrigonometry {
     }
 
     public double sin(double x){
-        if (Math.abs(x) > 1)
-            throw new IllegalArgumentException();
-
         double summand, sin = 0;
         int i = 0;
         do {

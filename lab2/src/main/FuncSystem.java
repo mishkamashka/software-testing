@@ -22,10 +22,10 @@ public class FuncSystem {
     }
 
     private double firstFunction(double x) {
-        return (((((trigonometry.tan(x) + trigonometry.cot(x)) * trigonometry.tan(x)) + (trigonometry.tan(x) + trigonometry.cos(x))) -
-                 - ((trigonometry.csc(x) + trigonometry.cot(x)) * ((trigonometry.cot(x) + trigonometry.csc(x)) + trigonometry.csc(x)))) -
-                - ((((trigonometry.csc(x) + trigonometry.tan(x)) / trigonometry.sec(x)) / (trigonometry.tan(x) -
-                        - (trigonometry.cos(x) - basicTrigonometry.sin(x)))) * basicTrigonometry.sin(x)));
+        return (((trigonometry.tan(x) + trigonometry.cot(x)) * trigonometry.tan(x) + (trigonometry.tan(x) + trigonometry.cos(x))) -
+                (trigonometry.csc(x) + trigonometry.cot(x)) * ((trigonometry.cot(x) + trigonometry.csc(x)) + trigonometry.csc(x))) -
+                ((basicTrigonometry.sin(x)*((trigonometry.csc(x) + trigonometry.tan(x)) / trigonometry.sec(x))) /
+                (trigonometry.tan(x) - (trigonometry.cos(x) - basicTrigonometry.sin(x))));
 
     }
 
