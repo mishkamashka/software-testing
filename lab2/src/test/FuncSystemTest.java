@@ -11,109 +11,188 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class FuncSystemTest {
-    private static final double delta = 1e-5;
-    static BasicLogarithm mockLogarithms;
-    static Logarithms logarithms;
-    static BasicTrigonometry mockTrigonometry;
-    static Trigonometry trigonometry;
+    private static final double delta = 1e-2;
+    static BasicLogarithm mockBasicLogarithm;
+    static Logarithms mockLogarithms;
+    static BasicTrigonometry mockBasicTrigonometry;
+    static Trigonometry mockTrigonometry;
     static FuncSystem system;
 
     @BeforeAll
     static void setup() {
-//        trigonometryFuncMock = mock(TrigonometryFunctions.class);
-//        logNFuncMock = mock(LogNFunctions.class);
-//
-//        when(trigonometryFuncMock.tan(-PI/4, EPSILON)).thenReturn(-1.);
-//        when(trigonometryFuncMock.sec(-PI/4, EPSILON)).thenReturn(Math.sqrt(2));
-//        when(trigonometryFuncMock.cos(-PI/4, EPSILON)).thenReturn(1/Math.sqrt(2));
-//
-//        when(trigonometryFuncMock.tan(-3.5, EPSILON)).thenReturn(tan(-3.5));
-//        when(trigonometryFuncMock.sec(-3.5, EPSILON)).thenReturn(-1.06786);
-//        when(trigonometryFuncMock.cos(-3.5, EPSILON)).thenReturn(cos(-3.5));
-//
-//        when(trigonometryFuncMock.tan(-5.8, EPSILON)).thenReturn(tan(-5.8));
-//        when(trigonometryFuncMock.sec(-5.8, EPSILON)).thenReturn(1.12928);
-//        when(trigonometryFuncMock.cos(-5.8, EPSILON)).thenReturn(cos(-5.8));
-//
-//        when(trigonometryFuncMock.tan(-4.2, EPSILON)).thenReturn(tan(-4.2));
-//        when(trigonometryFuncMock.sec(-4.2, EPSILON)).thenReturn(-2.03973);
-//        when(trigonometryFuncMock.cos(-4.2, EPSILON)).thenReturn(cos(-4.2));
-//
-//
-//        when(logNFuncMock.log(1.1,EPSILON, E)).thenReturn(log(1.1));
-//        when(logNFuncMock.log(1.1,EPSILON, 2)).thenReturn(0.137504);
-//        when(logNFuncMock.log(1.1,EPSILON, 3)).thenReturn(0.08675);
-//        when(logNFuncMock.log(1.1,EPSILON, 5)).thenReturn(0.0592195);
-//        when(logNFuncMock.log(1.1,EPSILON, 10)).thenReturn(0.04139);
-//
-//        when(logNFuncMock.log(0.5,EPSILON, E)).thenReturn(log(0.5));
-//        when(logNFuncMock.log(0.5,EPSILON, 2)).thenReturn(-1.);
-//        when(logNFuncMock.log(0.5,EPSILON, 3)).thenReturn(-0.630930);
-//        when(logNFuncMock.log(0.5,EPSILON, 5)).thenReturn(-0.430677);
-//        when(logNFuncMock.log(0.5,EPSILON, 10)).thenReturn(-0.301030);
-//
-//        when(logNFuncMock.log(2.1,EPSILON, E)).thenReturn(log(2.1));
-//        when(logNFuncMock.log(2.1,EPSILON, 2)).thenReturn(1.07039);
-//        when(logNFuncMock.log(2.1,EPSILON, 3)).thenReturn(0.675340);
-//        when(logNFuncMock.log(2.1,EPSILON, 5)).thenReturn(0.460992);
-//        when(logNFuncMock.log(2.1,EPSILON, 10)).thenReturn(0.322219);
-//
-//
-//        equationSystem = new EquationSystem(trigonometryFuncMock, logNFuncMock);
+        mockBasicLogarithm = mock(BasicLogarithm.class);
+        mockBasicTrigonometry = mock(BasicTrigonometry.class);
+        mockLogarithms = mock(Logarithms.class);
+        mockTrigonometry = mock(Trigonometry.class);
+
+        //Ox crosses
+        when(mockTrigonometry.cos(-4.0221)).thenReturn();
+        when(mockTrigonometry.cot(-4.0221)).thenReturn();
+        when(mockTrigonometry.csc(-4.0221)).thenReturn();
+        when(mockTrigonometry.sec(-4.0221)).thenReturn();
+        when(mockTrigonometry.tan(-4.0221)).thenReturn();
+        when(mockBasicTrigonometry.sin(-4.0221)).thenReturn();
+
+        when(mockTrigonometry.cos(-1.1330)).thenReturn();
+        when(mockTrigonometry.cot(-1.1330)).thenReturn();
+        when(mockTrigonometry.csc(-1.1330)).thenReturn();
+        when(mockTrigonometry.sec(-1.1330)).thenReturn();
+        when(mockTrigonometry.tan(-1.1330)).thenReturn();
+        when(mockBasicTrigonometry.sin(-1.1330)).thenReturn();
+
+        when(mockTrigonometry.cos(-5.2585)).thenReturn();
+        when(mockTrigonometry.cot(-5.2585)).thenReturn();
+        when(mockTrigonometry.csc(-5.2585)).thenReturn();
+        when(mockTrigonometry.sec(-5.2585)).thenReturn();
+        when(mockTrigonometry.tan(-5.2585)).thenReturn();
+        when(mockBasicTrigonometry.sin(-5.2585)).thenReturn();
+
+        when(mockTrigonometry.cos(-5.85442)).thenReturn();
+        when(mockTrigonometry.cot(-5.85442)).thenReturn();
+        when(mockTrigonometry.csc(-5.85442)).thenReturn();
+        when(mockTrigonometry.sec(-5.85442)).thenReturn();
+        when(mockTrigonometry.tan(-5.85442)).thenReturn();
+        when(mockBasicTrigonometry.sin(-5.85442)).thenReturn();
+
+        //intervals
+        when(mockTrigonometry.cos(-5.9350)).thenReturn();
+        when(mockTrigonometry.cot(-5.9350)).thenReturn();
+        when(mockTrigonometry.csc(-5.9350)).thenReturn();
+        when(mockTrigonometry.sec(-5.9350)).thenReturn();
+        when(mockTrigonometry.tan(-5.9350)).thenReturn();
+        when(mockBasicTrigonometry.sin(-5.9350)).thenReturn();
+
+        when(mockTrigonometry.cos(-5.385)).thenReturn();
+        when(mockTrigonometry.cot(-5.385)).thenReturn();
+        when(mockTrigonometry.csc(-5.385)).thenReturn();
+        when(mockTrigonometry.sec(-5.385)).thenReturn();
+        when(mockTrigonometry.tan(-5.385)).thenReturn();
+        when(mockBasicTrigonometry.sin(-5.385)).thenReturn();
+
+        when(mockTrigonometry.cos(-4.30)).thenReturn();
+        when(mockTrigonometry.cot(-4.30)).thenReturn();
+        when(mockTrigonometry.csc(-4.30)).thenReturn();
+        when(mockTrigonometry.sec(-4.30)).thenReturn();
+        when(mockTrigonometry.tan(-4.30)).thenReturn();
+        when(mockBasicTrigonometry.sin(-4.30)).thenReturn();
+
+        when(mockTrigonometry.cos(-4.110)).thenReturn();
+        when(mockTrigonometry.cot(-4.110)).thenReturn();
+        when(mockTrigonometry.csc(-4.110)).thenReturn();
+        when(mockTrigonometry.sec(-4.110)).thenReturn();
+        when(mockTrigonometry.tan(-4.110)).thenReturn();
+        when(mockBasicTrigonometry.sin(-4.110)).thenReturn();
+
+        when(mockTrigonometry.cos(-4.0350)).thenReturn();
+        when(mockTrigonometry.cot(-4.0350)).thenReturn();
+        when(mockTrigonometry.csc(-4.0350)).thenReturn();
+        when(mockTrigonometry.sec(-4.0350)).thenReturn();
+        when(mockTrigonometry.tan(-4.0350)).thenReturn();
+        when(mockBasicTrigonometry.sin(-4.0350)).thenReturn();
+
+        when(mockTrigonometry.cos(-3.8850)).thenReturn();
+        when(mockTrigonometry.cot(-3.8850)).thenReturn();
+        when(mockTrigonometry.csc(-3.8850)).thenReturn();
+        when(mockTrigonometry.sec(-3.8850)).thenReturn();
+        when(mockTrigonometry.tan(-3.8850)).thenReturn();
+        when(mockBasicTrigonometry.sin(-3.8850)).thenReturn();
+
+        when(mockTrigonometry.cos(-2.6810)).thenReturn();
+        when(mockTrigonometry.cot(-2.6810)).thenReturn();
+        when(mockTrigonometry.csc(-2.6810)).thenReturn();
+        when(mockTrigonometry.sec(-2.6810)).thenReturn();
+        when(mockTrigonometry.tan(-2.6810)).thenReturn();
+        when(mockBasicTrigonometry.sin(-2.6810)).thenReturn();
+
+        when(mockTrigonometry.cos(-1.30)).thenReturn();
+        when(mockTrigonometry.cot(-1.30)).thenReturn();
+        when(mockTrigonometry.csc(-1.30)).thenReturn();
+        when(mockTrigonometry.sec(-1.30)).thenReturn();
+        when(mockTrigonometry.tan(-1.30)).thenReturn();
+        when(mockBasicTrigonometry.sin(-1.30)).thenReturn();
+
+        //Ox crossings
+        when(mockLogarithms.log3(0.370)).thenReturn();
+        when(mockLogarithms.log10(0.370)).thenReturn();
+        when(mockBasicLogarithm.ln(0.370)).thenReturn();
+
+        when(mockLogarithms.log3(0.880)).thenReturn();
+        when(mockLogarithms.log10(0.880)).thenReturn();
+        when(mockBasicLogarithm.ln(0.880)).thenReturn();
+
+        when(mockLogarithms.log3(0.930)).thenReturn();
+        when(mockLogarithms.log10(0.930)).thenReturn();
+        when(mockBasicLogarithm.ln(0.930)).thenReturn();
+
+        when(mockLogarithms.log3(2.700)).thenReturn();
+        when(mockLogarithms.log10(2.700)).thenReturn();
+        when(mockBasicLogarithm.ln(2.700)).thenReturn();
+
+        //intervals
+        when(mockLogarithms.log3(0.2830)).thenReturn();
+        when(mockLogarithms.log10(0.2830)).thenReturn();
+        when(mockBasicLogarithm.ln(0.2830)).thenReturn();
+
+        when(mockLogarithms.log3(0.4850)).thenReturn();
+        when(mockLogarithms.log10(0.4850)).thenReturn();
+        when(mockBasicLogarithm.ln(0.4850)).thenReturn();
+
+        when(mockLogarithms.log3(1.95)).thenReturn();
+        when(mockLogarithms.log10(1.95)).thenReturn();
+        when(mockBasicLogarithm.ln(1.95)).thenReturn();
+
+        when(mockLogarithms.log3(2.20)).thenReturn();
+        when(mockLogarithms.log10(2.20)).thenReturn();
+        when(mockBasicLogarithm.ln(2.20)).thenReturn();
+
+        when(mockLogarithms.log3(16)).thenReturn();
+        when(mockLogarithms.log10(16)).thenReturn();
+        when(mockBasicLogarithm.ln(16)).thenReturn();
+
+        system = new FuncSystem(mockBasicLogarithm, mockBasicTrigonometry, mockLogarithms, mockTrigonometry);
+
     }
 
     @Test
     void leftOxCrossingTest() {
-        assertEquals(0, system.system(5.8520), delta);
-        assertEquals(0, system.system(-5.2584), delta);
         assertEquals(0, system.system(-4.0221), delta);
-    }
-
-    @Test
-    void rightOxCrossingTest() {
-        assertEquals(0, system.system(0.3680), delta);
-        assertEquals(0, system.system(2.6558), delta);
-        assertEquals(0, system.system(2.7697), delta);
+        assertEquals(0, system.system(-1.1330), delta);
+        assertEquals(0, system.system(-5.2585), delta);
+        assertEquals(0, system.system(-5.85442), delta);
     }
 
     @Test
     void leftUnreachableValueTest() {
-        assertThrows(IllegalArgumentException.class, () -> system.system(-4.0840));
-    }
-
-    @Test
-    void leftInflexionPointsTest() {
-        assertEquals(1.3203, system.system(-4.1514), delta);
-        assertEquals(0.0422, system.system(-3.9720), delta);
-        assertEquals(0.0193, system.system(-3.8290), delta);
+        assertThrows(IllegalArgumentException.class, () -> system.system(0));
     }
 
     @Test
     void leftIntervalsTest() {
-        assertEquals(0.0480, system.system(-4.0350), delta);
+        assertEquals(-42.08, system.system(-5.9350), delta);
+        assertEquals(-3.38, system.system(-5.385), delta);
+        assertEquals(2.85, system.system(-4.30), delta);
+        assertEquals(1.94, system.system(-4.110), delta);
+        assertEquals(-0.0480, system.system(-4.0350), delta);
         assertEquals(0.0251, system.system(-3.8850), delta);
         assertEquals(1.0010, system.system(-2.6810), delta);
+        assertEquals(7.79, system.system(-1.30), delta);
     }
 
+    @Test
+    void rightOxCrossingTest() {
+        assertEquals(0, system.system(0.370), delta);
+        assertEquals(0, system.system(0.880), delta);
+        assertEquals(0, system.system(0.930), delta);
+        assertEquals(0, system.system(2.700), delta);
+    }
 
+    @Test
+    void rightIntervalsTest() {
+        assertEquals(0.0384, system.system(0.2830), delta);
+        assertEquals(0.0027, system.system(0.4850), delta);
+        assertEquals(0.0026, system.system(1.95), delta);
+        assertEquals(0.0024, system.system(2.20), delta);
+        assertEquals(113.465, system.system(16), delta);
+    }
 
-
-//    @Test
-//    void funcLogIncreaseLessOneTest() {
-//        assertEquals(-4.63967, equationSystem.func1(0.5, EPSILON), DELTA);
-//    }
-//
-//    @Test
-//    void funcLogIncreaseMoreOneTest() {
-//        assertEquals(6.51623, equationSystem.func1(2.1, EPSILON), DELTA);
-//    }
-//
-//
-//
-//
-//    @Test
-//    void funcTrigonometryIncreaseSectionTest(){
-//        assertEquals(0.85355, equationSystem.func2(-PI/4, EPSILON), DELTA);
-//        assertEquals(0.24811, equationSystem.func2(-3.5, EPSILON), DELTA);
-//    }
 }
