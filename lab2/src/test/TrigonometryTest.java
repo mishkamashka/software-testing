@@ -29,20 +29,12 @@ public class TrigonometryTest {
         when(mock.sin(Math.PI * 5 / 4)).thenReturn(-Math.sqrt(2) / 2);
         when(mock.sin(Math.PI * 3 / 2)).thenReturn(-1.);
         when(mock.sin(Math.PI * 7 / 4)).thenReturn(-Math.sqrt(2) / 2);
-        when(mock.sin(2)).thenThrow(new IllegalArgumentException());
-        when(mock.sin(-2)).thenThrow(new IllegalArgumentException());
         trigonometry = new Trigonometry(mock);
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {0, Math.PI / 2, Math.PI * 3 / 4, Math.PI / 4, Math.PI})
     void testCosValidArgs(double x) {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> trigonometry.cos(x));
-    }
-
-    @ParameterizedTest
-    @ValueSource(doubles = {2, -2})
-    void testCosInvalidArgs(double x) {
         Assertions.assertEquals(Math.cos(x), trigonometry.cos(x), delta);
     }
 
