@@ -1,7 +1,5 @@
 package main;
 
-import java.util.IllformedLocaleException;
-
 public class Trigonometry {
 
     private final BasicTrigonometry basicTrigonometry;
@@ -11,7 +9,6 @@ public class Trigonometry {
     }
 
     public double cos(double x){
-//        return Math.sqrt(1 - Math.pow(basicTrigonometry.sin(x), 2));
         return basicTrigonometry.sin(x + Math.PI / 2);
     }
 

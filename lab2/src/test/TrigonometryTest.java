@@ -23,7 +23,7 @@ public class TrigonometryTest {
         when(mock.sin(Math.PI / 4)).thenReturn(Math.sqrt(2) / 2);
         when(mock.sin(Math.PI * 3 / 4)).thenReturn(Math.sqrt(2) / 2);
         when(mock.sin(Math.PI / 3)).thenReturn(Math.sqrt(3) / 2);
-        when(mock.sin(Math.PI / 2)).thenReturn(-1.);
+        when(mock.sin(- Math.PI / 2)).thenReturn(-1.);
         when(mock.sin(Math.PI / 2)).thenReturn(1.);
         when(mock.sin(Math.PI)).thenReturn(0.);
         when(mock.sin(Math.PI * 5 / 4)).thenReturn(-Math.sqrt(2) / 2);
@@ -72,5 +72,17 @@ public class TrigonometryTest {
     @ValueSource(doubles = {0, Math.PI})
     void testCotInvalidArgs(double x) {
         Assertions.assertThrows(IllegalArgumentException.class, () -> trigonometry.cot(x));
+    }
+
+    @ParameterizedTest
+    @ValueSource(doubles = {0, Math.PI * 5 / 4, Math.PI})
+    void testTanValidArgs(double x) {
+        Assertions.assertEquals(Math.tan(x), trigonometry.tan(x), delta);
+    }
+
+    @ParameterizedTest
+    @ValueSource(doubles = {Math.PI / 2, Math.PI * 3 / 2})
+    void testTanInvalidArgs(double x) {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> trigonometry.tan(x));
     }
 }

@@ -36,11 +36,11 @@ public class SinTest {
 
     @Test
     public void testGreaterThanOne() {
-        Assertions.assertEquals(Math.sin(1 + eps), basicTrigonometry.sin(1 + eps));
+        Assertions.assertEquals(Math.sin(1 + eps), basicTrigonometry.sin(1 + eps), delta);
     }
 
     @Test
     public void testLessThanMinusOne(){
-        Assertions.assertEquals(Math.sin(- 1 - eps), basicTrigonometry.sin(- 1 - eps));
+        Assertions.assertEquals(Math.sin(- 1 - eps), basicTrigonometry.sin(- 1 - eps), delta);
     }
 }
